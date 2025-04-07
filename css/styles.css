@@ -21,4 +21,58 @@ nav ul {
 body {
   margin: 0;
   font-family: sans-serif;
+  background-color: var(--color-fondo);
+  height: 500vh;
+}
+
+:root{
+  --color-fondo: blue;
+  --ancho-barra: width: 1%;
+}
+
+
+.advance-bar{
+  width: var(--ancho-barra);
+  background-color: red;
+  height: 10px;
+}
+.main{
+  position: fixed;
+  align-items: center;
+}
+
+h2 {
+  font-size: 25px;
+  text-align: center;
+  color: var(--color-fondo);
+}
+
+
+.selection-bar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255);
+  border-radius: 0.625rem;
+  padding: 1rem;
+  margin: 16px;
+}
+
+.button-group{
+  display: flex;
+  gap: 0.9375rem;
+  justify-content:center;
+  
+}
+.button{
+  width: 5rem;
+  height: 3.125rem;
+  background-color: var(--color-fondo);
+  border-radius: 10px;
+  box-shadow: 0 0px 5px 0 var(--color-fondo);
+  border: 1px solid white;
+}
+.button:hover{
+  transform: scale(1.1);
 }
