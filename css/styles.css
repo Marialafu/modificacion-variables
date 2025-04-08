@@ -30,23 +30,20 @@ body {
   background-color: var(--background-color);
   height: 500vh;
 }
-
+.mouse-box{
+  width: 50px;
+  height: 50px;
+  background-color: rgb(255, 230, 0);
+  position: fixed;
+  top: var(--positionY);
+  left: var(--positionX);
+  pointer-events: none;
+}
 .advance-bar{
   position: fixed;
   width: var(--bar-width);
   background-color: red;
   height: 10px;
-}
-.main{
-  position: fixed;
-}
-.mouse-box{
-  width: 10px;
-  height: 10px;
-  background-color: rgb(255, 230, 0);
-  position: fixed;
-  top: var(--positionY);
-  left: var(--positionX);
 }
 
 h2 {
@@ -55,8 +52,8 @@ h2 {
   color: var(--background-color);
 }
 
-
 .selection-bar{
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,13 +62,12 @@ h2 {
   border-radius: 0.625rem;
   padding: 1rem;
   margin: 16px;
-}
+} 
 
 .button-group{
   display: flex;
   gap: 0.9375rem;
   justify-content:center;
-  
 }
 .button{
   width: 5rem;
@@ -82,5 +78,5 @@ h2 {
   border: 1px solid white;
 }
 .button:hover{
-  transform: scale(1.1);
+  transform: scale(1.1); 
 }
