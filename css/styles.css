@@ -1,3 +1,9 @@
+:root{
+  --background-color: blue;
+  --bar-width: 10px;
+  --positionX: 156px;
+  --positionY: 156px;
+}
 * {
   box-sizing: border-box;
 }
@@ -21,30 +27,32 @@ nav ul {
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: var(--color-fondo);
+  background-color: var(--background-color);
   height: 500vh;
 }
 
-:root{
-  --color-fondo: blue;
-  --ancho-barra: width: 1%;
-}
-
-
 .advance-bar{
-  width: var(--ancho-barra);
+  position: fixed;
+  width: var(--bar-width);
   background-color: red;
   height: 10px;
 }
 .main{
   position: fixed;
-  align-items: center;
+}
+.mouse-box{
+  width: 10px;
+  height: 10px;
+  background-color: rgb(255, 230, 0);
+  position: fixed;
+  top: var(--positionY);
+  left: var(--positionX);
 }
 
 h2 {
   font-size: 25px;
   text-align: center;
-  color: var(--color-fondo);
+  color: var(--background-color);
 }
 
 
@@ -68,9 +76,9 @@ h2 {
 .button{
   width: 5rem;
   height: 3.125rem;
-  background-color: var(--color-fondo);
+  background-color: var(--background-color);
   border-radius: 10px;
-  box-shadow: 0 0px 5px 0 var(--color-fondo);
+  box-shadow: 0 0px 5px 0 var(--background-color);
   border: 1px solid white;
 }
 .button:hover{

@@ -1,38 +1,65 @@
-const amountScroll = document.getElementById('amount-scroll')
-const advanceBar = document.getElementById('advance-bar')
+const rootStyles = document.documentElement.style;
 
-const changeRGB = document.getElementById('rgb-color')
-const changeCMYK = document.getElementById('cmyk-color')
+const amountScroll = document.getElementById('amount-scroll');
+const advanceBar = document.getElementById('advance-bar');
 
+const changeRGB = document.getElementById('rgb-color');
+const changeHEX = document.getElementById('hex-color');
 
-
+const mouseBox = document.getElementById('mouse-box');
 
 //scrollY: cuántos px se ha desplazado el usuario verticalmente desde arriba.
 //innerHeight: alto visible de la ventana del navegador
 //.scrollHeight: alto total del contenido de la página
 
-amountScroll.textContent = `Scroll se ha desplazado 0px`
+amountScroll.textContent = `Scroll se ha desplazado 0px`;
 
 const calculateScroll = () => {
-    let calculateScroll = Math.floor(window.scrollY)
-    amountScroll.textContent = `Scroll se ha desplazado ${calculateScroll}px`
-    // advanceBar.setProperty('--ancho-barra', '100%')
-    
-}
-document.addEventListener('scroll', calculateScroll)
+  let calculateScroll = Math.floor(window.scrollY);
+  amountScroll.textContent = `Scroll se ha desplazado ${calculateScroll}px`;
+};
+document.addEventListener('scroll', calculateScroll);
 
-const aleatoryNumberRGB = Math.floor(Math.random()*255)
-const aleatoryNumberCMYK = Math.floor(Math.random()*100)
+const chachgeScrollBar = () => {
+  let amountScroll =
+    (window.scrollY * 100) / (document.body.scrollHeight - window.innerHeight);
+  rootStyles.setProperty('--bar-width', `${amountScroll}%`);
+};
+document.addEventListener('scroll', chachgeScrollBar);
 
+const generateRGBNumber = () => {
+  const aleatoryNumberRGB = Math.floor(Math.random() * 256);
+  return aleatoryNumberRGB;
+};
 
 const aleatoryRGB = () => {
-    const rootStyles = document.documentElement.style.setProperty('--color-fondo', 'rgb(aleatoryNumber, aleatoryNumber, aleatoryNumber)')
-}
-changeRGB.addEventListener('click', aleatoryRGB)
+  rootStyles.setProperty(
+    '--background-color',
+    `rgb(${generateRGBNumber()}, ${generateRGBNumber()}, ${generateRGBNumber()})`
+  );
+};
+changeRGB.addEventListener('click', aleatoryRGB);
 
-const rootStyles = document.documentElement.style
+const generateHEXcharacter = () => {
+  const characters = 'ABCDEF0123456789';
+  const aleatoryNumber = Math.floor(Math.random() * characters.length);
+  const aleatoryHEXCharacter = characters.charAt(aleatoryNumber);
+  return aleatoryHEXCharacter;
+};
 
-const aleatoryCMYK = () => {
-    rootStyles.setProperty('--color-fondo', 'rgb(aleatoryNumber, aleatoryNumber, aleatoryNumber)')
-}
-changeRGB.addEventListener('click', aleatoryCMYK)
+const aleatoryHEX = () => {
+  let generateHEX = '';
+  for (let i = 0; i < 6; i++) {
+    generateHEX += generateHEXcharacter();
+  }
+  rootStyles.setProperty('--background-color', `#${generateHEX}`);
+};
+changeHEX.addEventListener('click', aleatoryHEX);
+
+const moveMouseBox = event => {
+  rootStyles.setProperty('--positionX', `${event.x}px`);
+  rootStyles.setProperty('--positionY', `${event.y}px`);
+  console.dir(event);
+};
+
+document.addEventListener('mousemove', moveMouseBox);
